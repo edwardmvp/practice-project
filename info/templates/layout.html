@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<header>
+    <div class="logo">
+        {% comment %} <img src="{% static 'img/datum_logo.jpeg' %}"> {% endcomment %}
+    </div>
+    <nav style="display: flex; column-gap: 30px;" class="nav">
+        <a href="{% url 'catalog_book' %}">Каталог</a>
+        <a href="#">Раздел 2</a>
+
+    </nav>
+</header>
+
+<main>
+    {% block content %} {% endblock content %}
+</main>
+
+<footer>
+    Все книги в наличии, если не нашли то что искали, можете сделать заказ онлайн.
+</footer>
+
+</body>     
+
+</html>
