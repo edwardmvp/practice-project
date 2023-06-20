@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+
+{% block content %}
+
+{% if form.errors %}
+    <p>Данные для входа неверны!</p>
+{% endif %}
+
+{% if next %}
+    {% if user.is_authenticated %}
+    <p>Нет доступа. Для просмотра данной страницы авторизируйтесь!</p>
+    {% else %}
+        <p>Пожалуйста авторизируйтесь для просмотра данной страницы!</p>
+    {% endif %}
+{% endif %}
+
+<form method="post" action="{% url 'login' %}">
+{% csrf_token %}
+<table>
+
+<tr>
+    <td>{{ form.username.label.tag }}</td>
+    <td>{{ form.username }}</td>
+</tr>
+
+<tr>
+    <td>{{ form.password.label.tag }}</td>
+    <td>{{ form.password }}</td>
+</tr>
+</table>
+
+<input type="submit" value="Войти" />
+<input type="hidden" name="next" value="{{ next }}" />
+</form>
+
+<p><a href="{% url 'password_reset' %}">Забыли пароль?</a></p>
+
+{% endblock content %}

@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<form class="myform" enctype="multipart/form-data" method='POST'>
+    {% csrf_token %}
+
+    <button type="submit">Отправить</button>
+
+    {{form.as_p}}
+</form>
+
+{% endblock content %}

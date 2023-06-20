@@ -5,22 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
 </head>
 
-
 <header>
-    <div class="logo">
-        {% comment %} <img src="{% static 'img/datum_logo.jpeg' %}"> {% endcomment %}
-    </div>
-    <nav style="display: flex; column-gap: 30px;" class="nav">
-        <a href="{% url 'catalog_book' %}">Каталог</a>
-        <a href="#">Раздел 2</a>
-
-    </nav>
+    <section class="head" style="display: flex; align-items:center; justify-content:space-between;">
+        <div class="logo">
+            <a href="{% url 'info' %}"><img src="{% static 'assets/img/datum_logo.jpeg' %}" alt=""></a>
+        </div>
+        <nav class="buttons">
+            <a href="{% url 'info' %}">О нас</a>
+            <a href="{% url 'add_project' %}">Добавить проект</a>
+            <a href="/logout">Выйти</a>
+        </nav>
+    </section>
 </header>
-
 <main>
-    {% block content %} {% endblock content %}
+    {% block content %}
+
+    {% endblock content %}
 </main>
 
 <footer>

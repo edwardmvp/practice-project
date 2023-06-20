@@ -1,0 +1,17 @@
+{%extends 'layout.html'%}
+
+{%block content%}
+
+<div class="container">
+    <div class="row">
+        <h1>Posts</h1>
+
+        {% for project in  project%}
+        <h2>{{project.title}}</h2>
+        {{project.text|safe}}
+        {% endfor %}
+    </div>
+</div>
+
+{%endblock content%}
+

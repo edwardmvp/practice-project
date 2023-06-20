@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <button class="btn btn-success" type="submit">Добавить</button>
+</form>
+
+
+
+{% endblock content %}
